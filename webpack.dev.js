@@ -3,10 +3,15 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: './src/client/index.js',
+    output: {
+        libraryTarget: 'var',
+        library: 'Client'
+    },
     module: {
         rules: [
             {
@@ -17,6 +22,10 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.scss$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             }
         ]
     },
@@ -33,6 +42,9 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css'
         })
     ]
 }

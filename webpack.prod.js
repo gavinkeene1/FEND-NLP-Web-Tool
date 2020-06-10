@@ -8,6 +8,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     mode: 'production',
     entry: './src/client/index.js',
+    output: {
+        libraryTarget: 'var',
+        library: 'Client',
+    },
     module: {
         rules: [
             {
@@ -40,7 +44,7 @@ module.exports = {
             protectWebpackAssets: false
         }),
         new MiniCssExtractPlugin({
-            filename: 'base.css'
+            filename: '[name].css'
         })
     ]
 }
