@@ -4,6 +4,21 @@ const mockAPIResponse = require('./mockAPI.js')
 const bodyParser = require("body-parser");
 const cors = require('cors');
 
+// Set the Aylien API credentials
+var AYLIENTextAPI = require('aylien_textapi.js');
+var textapi = new AYLIENTextAPI({
+  application_id: "YOUR_APP_ID",
+  application_key: "YOUR_APP_KEY"
+});
+
+textapi.sentiment({
+    'text': 'John is a very good football player!'
+  }, function(error, response) {
+    if (error === null) {
+      console.log(response);
+    }
+  });
+
 const app = express();
 
 app.use(express.static('dist'));
