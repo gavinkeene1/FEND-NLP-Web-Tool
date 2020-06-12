@@ -1,8 +1,3 @@
-import { checkForName } from './js/nameChecker'
-import { handleSubmit } from './js/formHandler'
-
-console.log(checkForName);
-
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
