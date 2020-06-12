@@ -9,8 +9,8 @@ const cors = require('cors');
 // Set the Aylien API credentials
 var AYLIENTextAPI = require('aylien_textapi.js');
 var textapi = new AYLIENTextAPI({
-  application_id: "YOUR_APP_ID",
-  application_key: "YOUR_APP_KEY"
+  application_id: process.env.API_ID,
+  application_key: process.env.API_KEY
 });
 
 textapi.sentiment({
