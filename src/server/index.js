@@ -7,10 +7,11 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 
 // Set the Aylien API credentials
-var AYLIENTextAPI = require('aylien_textapi.js');
+var AYLIENTextAPI = require('aylien_textapi');
 var textapi = new AYLIENTextAPI({
   application_id: process.env.API_ID,
-  application_key: process.env.API_KEY
+  application_key: process.env.API_KEY,
+  url: "https://api.aylien.com/api/v1/sentiment"
 });
 
 textapi.sentiment({
@@ -40,5 +41,5 @@ app.listen(8081, function () {
 })
 
 app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
+    res.send(mockAPIResponse);
 })

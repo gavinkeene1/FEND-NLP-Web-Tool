@@ -6,7 +6,7 @@ function handleSubmit(event) {
     Client.checkForName(formText)
 
     console.log("::: Form Submitted :::")
-    // TODO: Fetch API - replace localhost
+    // TODO: Fetch API with localhost target
     fetch('http://localhost:8081/test')
     .then(res => res.json())
     .then(function(res) {
