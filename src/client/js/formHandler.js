@@ -19,7 +19,7 @@ function handleSubmit(event) {
 
     console.log("::: Form Submitted :::")
     // TODO: Fetch API with localhost target
-    fetch('http://localhost:8081/aylien', {
+    fetch('/aylien', {
         method: 'POST',
         body: JSON.stringify(urlSubmission),
         headers: {"Content-Type": "application/json"}

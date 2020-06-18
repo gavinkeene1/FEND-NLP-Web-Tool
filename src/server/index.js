@@ -13,6 +13,9 @@ var textapi = new AYLIENTextAPI({
   application_key: process.env.API_KEY,
 });
 
+// TODO: Show that the AYLIENTextAPI keys are correctly defined
+console.log(textapi);
+
 const app = express();
 
 app.use(cors());
@@ -42,6 +45,7 @@ app.post('/aylien', (request, response) => {
     textapi.sentiment({
       'text': 'John is a very good football player!'
     }, function(error, response) {
+      console.log(error,response);
       if (error === null) {
         console.log(response);
       }
