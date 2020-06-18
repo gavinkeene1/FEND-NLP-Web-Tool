@@ -6,6 +6,9 @@ const mockAPIResponse = require('./mockAPI.js')
 const bodyParser = require("body-parser");
 const cors = require('cors');
 
+console.log("API_ID is " + process.env.API_ID);
+console.log("API_KEY is " + process.env.API_KEY);
+
 // Set the Aylien API credentials
 var AYLIENTextAPI = require('aylien_textapi');
 var textapi = new AYLIENTextAPI({
