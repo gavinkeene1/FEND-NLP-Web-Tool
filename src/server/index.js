@@ -16,9 +16,6 @@ var textapi = new AYLIENTextAPI({
   application_key: process.env.API_KEY,
 });
 
-// TODO: Show that the AYLIENTextAPI keys are correctly defined
-console.log(textapi);
-
 const app = express();
 
 app.use(cors());
@@ -33,7 +30,7 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-// designates what port the app will listen to for incoming requests
+// Designate which port the app will listen to for incoming requests
 app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
@@ -51,6 +48,15 @@ app.post('/aylien', (request, response) => {
       console.log(error,response);
       if (error === null) {
         console.log(response);
+        analysisResults = {
+          "polarity": response.polarity,
+          "subjectivity": response.subjectivity,
+          "text": response.text,
+          "polarity_confidence": response.polarity_confidence,
+          "subjectivity_confidence": response.subjectivity_confidence
+        }
+        console.log("Immediately below are analysis results:");
+        console.log(analysisResults);
       }
     });
 });
