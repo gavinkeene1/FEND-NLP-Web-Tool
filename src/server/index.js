@@ -39,16 +39,17 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse);
 })
 
-app.post('/aylien', (request, response) => {
-    let articleURL = request.body.url;
-    console.log(articleURL);
+app.post('/aylien', (req, res) => {
+    let articleText = req.body.text;
+    console.log(articleText);
     textapi.sentiment({
       'text': 'John is a very good football player!'
     }, function(error, response) {
       console.log(error,response);
       if (error === null) {
         console.log(response);
-        analysisResults = {
+        // Store sentiment analysis results to be displayed in the UI
+        const analysisResults = {
           "polarity": response.polarity,
           "subjectivity": response.subjectivity,
           "text": response.text,
@@ -57,6 +58,8 @@ app.post('/aylien', (request, response) => {
         }
         console.log("Immediately below are analysis results:");
         console.log(analysisResults);
+        console.log("analysisResults should be available to UI now")
+        res.send(analysisResults);
       }
     });
 });

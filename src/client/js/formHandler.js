@@ -13,19 +13,20 @@ function handleSubmit(event) {
         document.getElementById('results').innerHTML = res.message
     })
 
-    let urlSubmission = {
-        url: formText
+    let textSubmission = {
+        text: formText
     };
 
     console.log("::: Form Submitted :::")
     // TODO: Fetch API with localhost target
-    fetch('/aylien', {
+    fetch('http://localhost:8081/aylien', {
         method: 'POST',
-        body: JSON.stringify(urlSubmission),
+        body: JSON.stringify(textSubmission),
         headers: {"Content-Type": "application/json"}
     })
     .then(res => res.json())
     .then(function(res) {
+        console.log("Trying 'then' function")
         document.getElementById('results').innerHTML = JSON.stringify(res);
     })
 }
