@@ -43,7 +43,7 @@ app.post('/aylien', (req, res) => {
     let articleText = req.body.text;
     console.log(articleText);
     textapi.sentiment({
-      'text': 'John is a very good football player!'
+      'text': articleText
     }, function(error, response) {
       console.log(error,response);
       if (error === null) {
