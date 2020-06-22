@@ -5,7 +5,8 @@ function handleSubmit(event) {
     let formText = document.getElementById('name').value
     Client.checkForName(formText)
 
-    console.log("::: Form Submitted :::")
+    console.log(formText.length);
+    console.log("::: Form Submitted :::");
     // TODO: Fetch API with localhost target
     fetch('http://localhost:8081/test')
     .then(res => res.json())
@@ -17,7 +18,7 @@ function handleSubmit(event) {
         text: formText
     };
 
-    console.log("::: Form Submitted :::")
+    console.log("::: Form Submitted :::");
     // TODO: Fetch API with localhost target
     fetch('http://localhost:8081/aylien', {
         method: 'POST',
@@ -35,5 +36,5 @@ function sum(a,b) {
     return a + b;
 }
 
-module.exports = sum;
+export { sum }
 export { handleSubmit }
