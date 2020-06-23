@@ -7,4 +7,15 @@ test('Verify that form input validation is <= 140 characters', () => {
         testPhrase += "a";
         expect(inputLength(testPhrase)).toBe(true);
     }
+    let phrase = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.";
+    expect(inputLength(phrase)).toBe(true);
+});
+
+// Demonstrate that input validation rejects more than 140 characters of input
+test('Verify that form input validation rejects > 140 characters', () => {
+    // Start with a base 140-character phrase
+    let testPhrase = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.";
+    for (let index = 140; index >= 140; index += 200) {
+        testPhrase += "abcdefghijklmnopqrstuvwxyz"
+    }
 });
