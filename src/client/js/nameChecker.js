@@ -13,4 +13,14 @@ function checkForName(inputText) {
     }
 }
 
+
+// Record the length of the input to validate it's length
+function inputLength(inputText) {
+    if (inputText.length <= 140) {
+        return true;
+    }
+    return false;
+}
+
 export { checkForName }
+export { inputLength }
