@@ -9,6 +9,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
+    target: 'node',
     mode: 'production',
     entry: './src/client/index.js',
     output: {
