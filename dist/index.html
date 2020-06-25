@@ -19,7 +19,7 @@
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Enter up to 140 characters of text for tweet analysis">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
@@ -27,6 +27,11 @@
             <section>
                 <strong>Form Results:</strong>
                 <div id="results"></div>
+                    <div id="polarity"></div>
+                    <div id="subjectivity"></div>
+                    <div id="text"></div>
+                    <div id="polarity-confidence"></div>
+                    <div id="subjectivity-confidence"></div>
             </section>
         </main>
 
