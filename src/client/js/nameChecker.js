@@ -1,8 +1,5 @@
-import { FALSE } from "node-sass";
-
 function checkForName(inputText) {
-    console.log("::: Running checkForName asdf :::", inputText);
-    console.log(inputText.length);
+    console.log("::: Running checkForName :::", inputText);
     let names = [
         "Picard",
         "Janeway",
@@ -15,6 +12,7 @@ function checkForName(inputText) {
         alert("Welcome, Captain!")
     }
 }
+
 
 // Record the length of the input to validate it's length
 function inputLength(inputText) {

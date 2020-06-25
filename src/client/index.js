@@ -12,7 +12,7 @@ import './styles/resets.scss';
 export {
     checkForName,
     inputLength,
-    handleSubmit,
+    handleSubmit
 }
 
 console.log(checkForName);

@@ -19,4 +19,4 @@ test('Verify that form input validation rejects > 140 characters', () => {
         testPhrase += "abcdefghijklmnopqrstuvwxyz";
     }
     expect(inputLength(testPhrase)).toBe(false);
-});
+}); 
