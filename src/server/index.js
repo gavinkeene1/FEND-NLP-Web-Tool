@@ -11,6 +11,7 @@ console.log("API_KEY is " + process.env.API_KEY);
 
 // Set the Aylien API credentials
 var AYLIENTextAPI = require('aylien_textapi');
+const { json } = require('body-parser');
 var textapi = new AYLIENTextAPI({
   application_id: process.env.API_ID,
   application_key: process.env.API_KEY,
@@ -49,17 +50,19 @@ app.post('/aylien', (req, res) => {
       if (error === null) {
         console.log(response);
         // Store sentiment analysis results to be displayed in the UI
-        const analysisResults = {
+        /*const analysisResults = {
           "polarity": response.polarity,
           "subjectivity": response.subjectivity,
           "text": response.text,
           "polarity_confidence": response.polarity_confidence,
           "subjectivity_confidence": response.subjectivity_confidence
         }
+        const resultsObject = JSON.parse(analysisResults);
         console.log("Immediately below are analysis results:");
         console.log(analysisResults);
         console.log("analysisResults should be available to UI now")
-        res.send(analysisResults);
+        console.log(resultsObject);*/
+        res.send(response);
       }
     });
 });
