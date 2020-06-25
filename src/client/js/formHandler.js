@@ -28,8 +28,13 @@ function handleSubmit(event) {
     })
     .then(res => res.json())
     .then(function(res) {
-        console.log("Trying 'then' function")
-        document.getElementById('results').innerHTML = JSON.stringify(res);
+        console.log("Trying 'then' function");
+        document.getElementById('results').innerHTML = "this can be deleted shortly";
+        document.getElementById('polarity').innerHTML = res.polarity;
+        document.getElementById('subjectivity').innerHTML = res.subjectivity;
+        document.getElementById('text').innerHTML = res.text;
+        document.getElementById('polarity-confidence').innerHTML = res.polarity_confidence;
+        document.getElementById('subjectivity-confidence').innerHTML = res.subjectivity_confidence;
     })
 }
 
