@@ -14,6 +14,7 @@ function handleSubmit(event) {
         document.getElementById('subjectivity-confidence').innerHTML = "";
     }
 
+    else {
     console.log(formText.length);
     console.log("::: Form Submitted :::");
     // TODO: Fetch API with localhost target
@@ -36,12 +37,15 @@ function handleSubmit(event) {
     })
     .then(res => res.json())
     .then(function(res) {
+        console.log(res.polarity);
+        console.log(typeof res.polarity);
         document.getElementById('polarity').innerHTML = "Polarity: " + res.polarity;
         document.getElementById('subjectivity').innerHTML = "Subjectivity: " + res.subjectivity;
         document.getElementById('text').innerHTML = "Text that was analyzed: '" + res.text + "'";
         document.getElementById('polarity-confidence').innerHTML = "Polarity confidence: " + res.polarity_confidence;
         document.getElementById('subjectivity-confidence').innerHTML = "Subjectivity confidence: " + res.subjectivity_confidence;
     })
+}
 }
 
 export { handleSubmit }
