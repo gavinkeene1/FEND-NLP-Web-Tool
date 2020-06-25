@@ -1,21 +1,19 @@
-# Webpack Express Example App
+# FEND Natural Language Processing Web Tool
+This an web tool project that allows users to run Natural Language Processing (NLP) on tweet-sized bits of text for sentiment analysis with a couple of objective metrics.
 
-The goal of this repo is be an example of a basic but functional app built on Express and Webpack.
+When a user enters text into the input field and clicks 'submit', the app runs a validation test to check that text up to 140 characters has been entered.
 
-If you are just starting this process, start from branch 0-initial-setup. Otherwise, switch to the appropriate numbered branches of this repo as needed. The branches are:
-- [0-initial-setup](https://github.com/udacity/fend-webpack-content/tree/0-initial-setup)
-- [1-install-webpack](https://github.com/udacity/fend-webpack-content/tree/1-install-webpack)
-- [2-add-webpack-entry](https://github.com/udacity/fend-webpack-content/tree/2-add-webpack-entry)
-- [3-webpack-output-and-loaders](https://github.com/udacity/fend-webpack-content/tree/3-webpack-output-and-loaders)
-- [4-webpack-plugins](https://github.com/udacity/fend-webpack-content/tree/4-webpack-plugins)
-- [5-webpack-mode](https://github.com/udacity/fend-webpack-content/tree/5-webpack-mode)
-- [6-webpack-for-convenience](https://github.com/udacity/fend-webpack-content/tree/6-webpack-for-convenience)
+If validation passes, the app calls the Aylien Text API at its "sentiment analysis" endpoint, passing protected API keys from a .env, getting information, and then posting it to the user's viewing page.
 
-Each branch in this project is a step along the path to creating a fully functional webpack setup. In each branch, there will be a documentation file that lists out the steps taken in that branch (each step is also roughly a git commit if you look at the history) which you can use as a checklist when setting up your own projects. 
+Development and Production environments have been set up for the project, and code has been minified for Production. Webpack enables Live Reloading in Development.
 
-## What we will cover
+Sass files house the styling for the project and are imported by the client's source index.js file.
 
-We will cover:
+A couple of very simple Jest tests are set up to demonstrate working functions  in the formHandler and nameChecker files that aid the app in properly taking in input and returning Aylien API data.
+
+Finally, Service Workers are set up for caching of the app when online to provide for offline usage of the app.
+
+## Concepts Covered Throughout Project Development
 
 - Webpack entry point
 - Webpack output and dist folder
@@ -23,16 +21,3 @@ We will cover:
 - Webpack Plugins
 - Webpack Mode
 - Tools for convenient Webpack development
-
-## Get Up and Running
-
-Fork this repo, then clone the branch of your choice from your forked repo down to your computer:
-
-```
-git clone -- git@github.com:[your-user-name]/webpack-express.git --
-```
-
-`cd` into your new folder and run:
-- ```npm install```
-- ```npm start``` to start the app
-- this app runs on localhost:8080, but you can of course edit that in server.js
