@@ -4,7 +4,15 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('name').value
     Client.checkForName(formText)
-    Client.inputLength(formText)
+    if (Client.inputLength(formText) === false) {
+        alert("We have > 140 characters or other invalid input (nothing entered)");
+        document.getElementById('results').innerHTML= "Please enter up to 140 characters of text to be analyzed";
+        document.getElementById('polarity').innerHTML = "";
+        document.getElementById('subjectivity').innerHTML = "";
+        document.getElementById('text').innerHTML = "";
+        document.getElementById('polarity-confidence').innerHTML = "";
+        document.getElementById('subjectivity-confidence').innerHTML = "";
+    }
 
     console.log(formText.length);
     console.log("::: Form Submitted :::");
@@ -28,8 +36,6 @@ function handleSubmit(event) {
     })
     .then(res => res.json())
     .then(function(res) {
-        console.log("Trying 'then' function");
-        document.getElementById('results').innerHTML = "this can be deleted shortly";
         document.getElementById('polarity').innerHTML = "Polarity: " + res.polarity;
         document.getElementById('subjectivity').innerHTML = "Subjectivity: " + res.subjectivity;
         document.getElementById('text').innerHTML = "Text that was analyzed: '" + res.text + "'";
