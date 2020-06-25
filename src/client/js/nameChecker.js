@@ -19,7 +19,7 @@ function inputLength(inputText) {
         return true;
     }
     // Change to if statement at 0 or > 140 characters
-    else if (inputText.length == 0 || inputText.length > 140) {
+    else if (inputText.length == 0 || inputText.length > 140 || typeof inputText.length === 'undefined') {
         // Entering only 0 or more than 140 characters is invalid
         return false;
     }
